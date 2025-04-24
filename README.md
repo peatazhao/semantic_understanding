@@ -1,11 +1,13 @@
 # Semantic Understanding of Indoor Spaces with Speech
 **Overview**
-This project utilized the Intel RealSense D435i camera as its only peripheral.
+This project attempts tp tackles the challenge of indoor navigation and interaction for individuals who suffer from vision and hearing problems.
+By utilizing an Intel RealSense D435i and pretrained YOLO and CLIP models, our system is capable of predicting the semantic understanding of the
+scene in addition to articulating that to the user. 
 
 **Tip:** 
 If possible, use Windows, as realsense D435i ran with less issues compared to macOS.
 
 **Authors**
-- Ankita Mahajan
-- Peter Zhao
+- Ankita Mahajan (ankitamj@umich.edu)
+- Peter Zhao (peata@umich.edu)
 
