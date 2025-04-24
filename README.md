@@ -5,7 +5,7 @@ By utilizing an Intel RealSense D435i and pretrained YOLO and CLIP models, our s
 scene in addition to articulating that to the user. 
 
 **Tip:** 
-If possible, use Windows, as realsense D435i ran with less issues compared to macOS.
+If possible, use Windows, as the RealSense camera ran with less issues compared to macOS on our end.
 
 **Authors**
 - Ankita Mahajan (ankitamj@umich.edu)
