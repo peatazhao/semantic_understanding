@@ -7,6 +7,9 @@ scene in addition to articulating that to the user.
 **Tip:** 
 If possible, use Windows, as the RealSense camera ran with less issues compared to macOS on our end.
 
+**Project Code:**
+Located under Final.py file
+
 **Authors**
 - Ankita Mahajan (ankitamj@umich.edu)
 - Peter Zhao (peata@umich.edu)
