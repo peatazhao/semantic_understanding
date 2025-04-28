@@ -116,13 +116,13 @@ def describe_with_clip(image_for_clip, captions):
 
     # If it's blank or empty then...
     if probs.numel() == 0:
-        print("CLIP probabilities tensor is empty.")
+        print("CLIP probs tensor is empty s.")
         return None
 
     top_idx = probs.argmax().item()
     best_caption = captions[top_idx]
     confidence = probs[0, top_idx].item()
-    print(f"CLIP Best Caption: '{best_caption}' with confidence {confidence:.4f}")
+    print(f"Best cap is: '{best_caption}' with confidence {confidence:.4f}")
 
     return best_caption
 # -------------------------------------- Describing clip now ---------------------------------
@@ -132,7 +132,7 @@ def describe_with_clip(image_for_clip, captions):
 
 
 
-YOLO_MODEL_PATH = 'yolo12n.pt' # We're using 12 instead of 8 - prof said
+YOLO_MODEL_PATH = 'yolo12n.pt' # We're using 12 instead of 8 or 10
 model = YOLO(YOLO_MODEL_PATH)
 classNames = model.names
 
@@ -145,13 +145,13 @@ def speaking(img, result_list, H, W, depth_frame):
 
     if not result_list:
         print("No YOLO results passed to speaking function.")
-        description = "I don't see anything."
+        description = "I don't see anything in the scene"
     else:
         valid_detection_found = False
         for result in result_list:
             for box in result.boxes:
                 confidence = box.conf[0].item()
-                if confidence < 0.5:
+                if confidence < 0.5: # Might need to tune on test day!
                      continue
 
                 valid_detection_found = True
@@ -164,7 +164,7 @@ def speaking(img, result_list, H, W, depth_frame):
                 safe_cx = max(0, min(W - 1, centerX))
                 safe_cy = max(0, min(H - 1, centerY))
 
-                # Get Depth - NEW: added try catch so it doesn't keep bre
+                # Get Depth: add try catch so it doesn't keep brea?
                 depth = depth_frame.get_distance(safe_cx, safe_cy)
                 if depth <= 0 or depth > 30:
                     depth_phrase = "at an unknown distance"
@@ -228,7 +228,7 @@ def speaking(img, result_list, H, W, depth_frame):
                     object2_info = closest_obj
 
             elif num_detections >= 2:
-                 print("Trying to find the closest objects.")
+                 print("More than 2 objects detecting... trying to find the closest objects...")
                  closest_pair = None
                  min_dist = float('inf')
 
